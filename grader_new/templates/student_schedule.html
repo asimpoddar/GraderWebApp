@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if current_user.is_student==True%}
+<h4 class="text-center">Your Schedule</h4> 
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Course</th>
+            <th>Time</th>
+            <th>Instructor </th>
+            <th>Instructor's Email </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% set count = namespace(a=1) %}
+    {% for key,value in courses.items() %}
+        <tr>
+            <th scope="row">{{count.a}}</th>
+            <td>{{key}}</td>
+            {% for item in value%}
+            <td>{{item}}</td>
+            {% endfor%}
+        
+        </tr>
+    </tbody>
+    {% set count.a = count.a + 1 %}
+    {% endfor %}
+  
+</table>
+<br>
+{% else %}
+<div class="alert alert-primary text-center">
+    You don't have authorization to view this page
+</div>
+{%endif%}
+{% endblock %}

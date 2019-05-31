@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h3 class="text-center"> Instructor's Dashboard </h3>
+<div class="d-flex justify-content-center row-hl">
+<div class="p-4 item-hl">
+    <div class="card" style="width: 20rem;">
+        <div class="card-body">
+            <h4 class="card-title">Create Course</h4>
+            <h6 class="card-subtitle text-muted">Card subtitle</h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.</p>
+            <a class="btn btn-outline-primary" href="{{ url_for('createCourse') }}">Click</a>
+        </div>
+</div>
+
+<br>
+<br>
+</div>
+
+<div class="p-4 item-hl">
+<div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <h4 class="card-title">Create Assignments</h4>
+        <h6 class="card-subtitle text-muted">Card subtitle</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.</p>
+        <a class="btn btn-outline-primary" href="createAssignment">Click</a>
+    </div>
+</div>
+
+<br>
+<br>
+      
+</div>
+
+<div class="p-4 item-hl">
+<div class="card" style="width: 20rem;">
+<div class="card-body">
+    <h4 class="card-title">Add Student</h4>
+    <h6 class="card-subtitle text-muted">Add Student</h6>
+    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.</p>
+    <a class="btn btn-outline-primary" href="{{ url_for('addStudent') }}">Click</a>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="d-flex justify-content-center row-hl">
+<div class="p-4 item-hl">
+    <div class="card" style="width: 20rem;">
+        <div class="card-body">
+            <h4 class="card-title">Add Parent</h4>
+            <h6 class="card-subtitle text-muted">Card subtitle</h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.</p>
+            <a class="btn btn-outline-primary" href="{{ url_for('addParent') }}">Click</a>
+        </div>
+</div>
+
+    <br>
+    <br>
+</div>
+
+<div class="p-4 item-hl">
+<div class="card" style="width: 20rem;">
+        <div class="card-body">
+        <h4 class="card-title">Grade Assignments</h4>
+        <h6 class="card-subtitle text-muted">Card subtitle</h6>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.</p>
+        <a class="btn btn-outline-primary" href="{{ url_for('grade') }}">Click</a>
+</div>
+</div>
+
+<br>
+<br>
+      
+</div>
+
+<div class="p-4 item-hl">
+<div class="card" style="width: 20rem;">
+<div class="card-body">
+    <h4 class="card-title"> Reviews </h4>
+    <h6 class="card-subtitle text-muted">Card subtitle</h6>
+    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.</p>
+    <a class="btn btn-outline-primary" href="{{ url_for('instReview') }}">Click</a>
+</div>
+</div>
+
+</div>
+</div>
+
+<h4> Current Course Infomation  </h4> 
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Course</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% set count = namespace(a=1) %}
+    {% for course in courses %}
+        <tr>
+            <th scope="row">{{count.a}}</th>
+            <td>{{course.name}}</td>
+            <td>{{course.time}}</td>
+        </tr>
+    </tbody>
+    {% set count.a = count.a + 1 %}
+    {% endfor %}
+  
+</table>
+<br>
+{% endblock %}
